@@ -1,0 +1,60 @@
+<div class="container-404">
+  <div class="error-content">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>The page you're looking for doesn't exist.</p>
+    <a href="/tracker" class="btn-home">Go Back to Tracker</a>
+  </div>
+</div>
+
+<style>
+  .container-404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .error-content {
+    text-align: center;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .error-content h1 {
+    font-size: 100px;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .error-content h2 {
+    font-size: 32px;
+    margin: 20px 0;
+  }
+
+  .error-content p {
+    font-size: 18px;
+    margin: 10px 0 30px 0;
+  }
+
+  .btn-home {
+    display: inline-block;
+    padding: 12px 30px;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .btn-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+</style>
