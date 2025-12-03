@@ -1,6 +1,6 @@
 const models = require('../models');
 
-const { Collection, Account } = models;
+const { Collection } = models;
 
 // Get all collections for the current user
 const getCollections = async (req, res) => {
