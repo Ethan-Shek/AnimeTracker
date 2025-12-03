@@ -85,24 +85,43 @@ const SignupWindow = (props) => {
 };
 
 const init = () => {
+    const root = createRoot(document.getElementById('content'));
     const loginButton = document.getElementById('loginButton');
     const signupButton = document.getElementById('signupButton');
 
-    const root = createRoot(document.getElementById('content'));
-
-    loginButton.addEventListener('click', (e) => {
-        e.preventDefault();
+    const renderLogin = () => {
         root.render(<LoginWindow />);
-        return false;
-    });
+        if (loginButton && signupButton) {
+            loginButton.classList.add('active');
+            signupButton.classList.remove('active');
+        }
+    };
 
-    signupButton.addEventListener('click', (e) => {
-        e.preventDefault();
+    const renderSignup = () => {
         root.render(<SignupWindow />);
-        return false;
-    });
+        if (loginButton && signupButton) {
+            loginButton.classList.remove('active');
+            signupButton.classList.add('active');
+        }
+    };
 
-    root.render(<LoginWindow />);
+    if (loginButton) {
+        loginButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            renderLogin();
+            return false;
+        });
+    }
+
+    if (signupButton) {
+        signupButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            renderSignup();
+            return false;
+        });
+    }
+
+    renderLogin();
 };
 
 window.onload = init;
