@@ -12,7 +12,7 @@ const { RedisStore } = require('connect-redis');
 const redis = require('redis');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
-const dbURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/DomoMaker';
+const dbURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/AnimeTracker';
 
 // --- Redis Setup ---
 const redisClient = redis.createClient({
@@ -52,7 +52,7 @@ redisClient.connect().then(() => {
       client: redisClient,
       prefix: 'session:',
     }),
-    secret: 'Domo Arigato',
+    secret: process.env.SESSION_SECRET || 'AnimeTrackerSessionSecret',
     resave: false,
     saveUninitialized: false,
     cookie: { httpOnly: true },
