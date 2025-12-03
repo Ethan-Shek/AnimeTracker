@@ -8,7 +8,7 @@ const expressHandlebars = require('express-handlebars');
 const helmet = require('helmet');
 const router = require('./router.js');
 const session = require('express-session');
-const { RedisStore } = require('connect-redis');
+const RedisStore = require('connect-redis').default;
 const redis = require('redis');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
