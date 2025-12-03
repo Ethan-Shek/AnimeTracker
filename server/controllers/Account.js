@@ -72,7 +72,7 @@ const changePassword = async (req, res) => {
     }
 
     // Verify current password
-    const isMatch = await bcrypt.compare(req.body.currentPassword, account.password);
+    //const isMatch = await bcrypt.compare(req.body.currentPassword, account.password);
     if (!isMatch) {
       return res.status(401).json({ error: 'Current password is incorrect!' });
     }
