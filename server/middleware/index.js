@@ -13,19 +13,21 @@ const requiresLogout = (req, res, next) => {
 };
 
 const requiresSecure = (req, res, next) => {
-  if (process.env.NODE_ENV !== 'production') {
-    return next(); 
-  }
-
   if (req.headers['x-forwarded-proto'] !== 'https') {
     return res.redirect(`https://${req.hostname}${req.url}`);
   }
+return next();
+}
 
+const bypassSecure = (req, res, next) => {
   return next();
 };
 
-module.exports = {
-  requiresLogin,
-  requiresLogout,
-  requiresSecure,
-};
+module.exports.requiresLogin = requiresLogin;
+module.exports.requiresLogout = requiresLogout;
+
+if(process.env.NODE_ENV === 'production'){
+  module.exports.requiresSecure = requiresSecure;
+} else {
+  module.exports.requiresSecure = bypassSecure;
+}

@@ -3,9 +3,7 @@ const models = require('../models');
 const { Anime } = models;
 
 // Page to display the anime tracker dashboard
-const trackerPage = (req, res) => {
-  return res.render('app');
-};
+const trackerPage = (req, res) => res.render('app');
 
 // Get all anime for the current user
 const getAnime = async (req, res) => {

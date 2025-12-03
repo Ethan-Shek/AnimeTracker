@@ -94,8 +94,9 @@ const App = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch('/logout');
-      window.location.href = '/';
+      const res = await fetch('/logout');
+      window.location = '/';
+      console.log(res);
     } catch (err) {
       console.error('Error logging out:', err);
     }
