@@ -1,13 +1,13 @@
+const bcrypt = require('bcrypt');
 const models = require('../models');
-const Account = models.Account;
 
-const loginPage = (req, res) => {
-    return res.render('login');
-};
+const { Account } = models;
+
+const loginPage = (req, res) => res.render('login');
 
 const logout = (req, res) => {
-    req.session.destroy();
-    return res.redirect('/');
+  req.session.destroy();
+  return res.redirect('/');
 };
 
 const login = (req, res) => {
